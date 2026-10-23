@@ -1,0 +1,173 @@
+# Pages CMS 后台配置（https://app.pagescms.org）
+# 用 GitHub 账号登录后台，就能用表单发活动、改通知和联系方式，不需要写代码。
+
+media:
+  input: static/images
+  output: /images
+
+content:
+  - name: events
+    label: 活动回顾
+    type: collection
+    path: content/events
+    filename: "{fields.date}-{fields.slug}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: 中文标题（必填）
+        type: string
+        required: true
+      - name: slug
+        label: 网址名（英文小写和短横线，例如 board-game-night）
+        type: string
+        required: true
+      - name: date
+        label: 活动日期
+        type: date
+        required: true
+      - name: category
+        label: 类别
+        type: select
+        required: true
+        options:
+          values:
+            - { name: culture, label: 文化 }
+            - { name: welcome, label: 迎新 }
+            - { name: talk, label: 讲座 }
+            - { name: outing, label: 出游 }
+            - { name: sport, label: 运动 / 桌游 }
+      - name: place
+        label: 地点
+        type: string
+      - name: time
+        label: 时间（例如 16:00–20:00，可不填）
+        type: string
+      - name: people
+        label: 参与人数（例如 ~30，可不填）
+        type: string
+      - name: cover
+        label: 封面照片（横图最好）
+        type: image
+        options:
+          path: static/images/events
+      - name: photos
+        label: 相册照片（可多选）
+        type: image
+        options:
+          path: static/images/events
+          multiple:
+            max: 20
+      - name: summary_zh
+        label: 一句话简介（中文，必填）
+        type: text
+        required: true
+      - name: body
+        label: 正文（中文，必填）
+        type: rich-text
+        required: true
+      - name: title_en
+        label: English title（可不填）
+        type: string
+      - name: summary_en
+        label: English summary（可不填）
+        type: text
+      - name: body_en
+        label: English text（可不填，空着时英文页面显示中文原文）
+        type: text
+      - name: title_de
+        label: Deutscher Titel（可不填）
+        type: string
+      - name: summary_de
+        label: Deutsche Kurzbeschreibung（可不填）
+        type: text
+      - name: body_de
+        label: Deutscher Text（可不填，空着时德语页面显示中文原文）
+        type: text
+
+  - name: notices
+    label: 首页近期通知
+    type: file
+    path: data/notices.yml
+    format: yaml
+    list: true
+    fields:
+      - name: day
+        label: 显示的日期（例如 10.30）
+        type: string
+        required: true
+      - name: time
+        label: 日期下的小字（例如 2026 · 16:00–20:00）
+        type: string
+      - name: end
+        label: 结束日期（过了这天自动隐藏）
+        type: date
+        required: true
+      - name: title_zh
+        label: 中文标题
+        type: string
+        required: true
+      - name: text_zh
+        label: 中文说明
+        type: text
+      - name: link
+        label: 链接（报名表等，可不填）
+        type: string
+      - name: title_en
+        label: English title
+        type: string
+      - name: text_en
+        label: English text
+        type: text
+      - name: title_de
+        label: Deutscher Titel
+        type: string
+      - name: text_de
+        label: Deutscher Text
+        type: text
+
+  - name: site
+    label: 网站设置
+    type: file
+    path: data/site.yml
+    format: yaml
+    fields:
+      - name: email
+        label: 联系邮箱（空着则不显示）
+        type: string
+      - name: wechat
+        label: 微信公众号名称
+        type: string
+      - name: xiaohongshu
+        label: 小红书
+        type: string
+      - name: newcomer_group_zh
+        label: 新生群加入方式（中文）
+        type: string
+      - name: newcomer_group_en
+        label: 新生群加入方式（English）
+        type: string
+      - name: newcomer_group_de
+        label: 新生群加入方式（Deutsch）
+        type: string
+      - name: handbook_url
+        label: 新生手册链接
+        type: string
+      - name: welcome_signup_url
+        label: 迎新会报名表链接
+        type: string
+      - name: housing_group_url
+        label: 租房群链接（可不填）
+        type: string
+      - name: partners
+        label: 合作与支持
+        type: string
+        list: true
+      - name: impressum_name
+        label: Impressum 负责人姓名
+        type: string
+      - name: impressum_address
+        label: Impressum 地址
+        type: string
