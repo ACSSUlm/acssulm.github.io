@@ -1,18 +1,13 @@
-# 网站通用信息。可以在后台「网站设置」里修改，也可以直接改这个文件。
-email: ""
-wechat: "乌尔姆学联"
+email: 13593009516@163.com
+wechat: 乌尔姆学联
 xiaohongshu: "@乌尔姆中国学生学者联合会"
-newcomer_group_zh: "添加小助手微信并备注“学校+专业”"
-newcomer_group_en: "Add our assistant on WeChat with \"university + programme\""
-newcomer_group_de: "Assistenten auf WeChat mit „Hochschule + Fach“ hinzufügen"
-handbook_url: ""
-welcome_signup_url: ""
-housing_group_url: ""
+newcomer_group_zh: 添加微信并备注“学校+专业”：ZYC009516
+newcomer_group_en: 'Add our assistant on WeChat with "university + programme": ZYC009516'
+newcomer_group_de: "Assistenten auf WeChat mit „Hochschule + Fach“ hinzufügen: ZYC009516"
 partners:
-  - "乌尔姆中文学校 Chinesische Schule Ulm"
-  - "Studierendenwerk Ulm"
-  - "中国驻法兰克福总领馆"
-  - "Universität Ulm"
-  - "China Palast"
-impressum_name: ""
-impressum_address: ""
+  - 乌尔姆中文学校 Chinesische Schule Ulm
+  - Studierendenwerk Ulm
+  - 中国驻法兰克福总领馆
+  - Universität Ulm
+  - China Palast
+impressum_name: Yichi Zhang
