@@ -1,0 +1,2 @@
+{{- /* 图片地址：兼容 "/images/x.jpg" 和 "images/x.jpg" */ -}}
+{{- strings.TrimPrefix "/" . | relURL -}}

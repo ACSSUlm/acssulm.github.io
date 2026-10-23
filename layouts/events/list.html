@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="phead"><div class="wrap">
+  <div class="crumbs"><a href="{{ "/" | relURL }}"><span class="zh">首页</span><span class="en">Home</span><span class="de">Start</span></a><span>/</span><span><span class="zh">活动回顾</span><span class="en">Events</span><span class="de">Rückblick</span></span></div>
+  <h1><span class="zh">活动回顾</span><span class="en">Past events</span><span class="de">Rückblick</span></h1>
+  <p class="lead"><span class="zh">我们一起做过的事。</span><span class="en">What we've done together.</span><span class="de">Was wir zusammen gemacht haben.</span></p>
+</div></div>
+<div class="wrap pbody">
+  <section class="sec">
+    {{ $pages := .Pages.ByDate.Reverse }}
+    <div class="filters" id="filters" role="group" aria-label="Filter">
+      <button data-c="all" aria-pressed="true"><span class="zh">全部</span><span class="en">All</span><span class="de">Alle</span></button>
+      {{ $cats := slice }}{{ range $pages }}{{ $cats = $cats | append .Params.category }}{{ end }}
+      {{ range uniq $cats }}<button data-c="{{ . }}" aria-pressed="false">{{ partial "cat.html" . }}</button>{{ end }}
+    </div>
+    <div class="g3" id="event-list">{{ range $pages }}{{ partial "event-card.html" . }}{{ end }}</div>
+  </section>
+</div>
+{{ end }}

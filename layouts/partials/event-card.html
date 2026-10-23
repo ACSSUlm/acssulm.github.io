@@ -1,0 +1,8 @@
+<a class="card ev-card" href="{{ .RelPermalink }}" data-cat="{{ .Params.category }}">
+  <div class="cover img">{{ with .Params.cover }}<img src="{{ partial "img.html" . }}" alt="" loading="lazy">{{ end }}</div>
+  <div class="in">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "date.html" .Date }} · {{ partial "cat.html" .Params.category }}</time>
+    <h3>{{ partial "tri.html" (dict "zh" .Title "en" .Params.title_en "de" .Params.title_de) }}</h3>
+    <p>{{ partial "tri.html" (dict "zh" .Params.summary_zh "en" .Params.summary_en "de" .Params.summary_de) }}</p>
+  </div>
+</a>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · ACSSUlm{{ end }}</title>
+<meta name="description" content="{{ with .Params.summary_zh }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:image" content="{{ with .Params.cover }}{{ partial "img.html" . | absURL }}{{ else }}{{ "images/ulm.jpg" | absURL }}{{ end }}">
+<link rel="icon" href="{{ "images/logo.png" | relURL }}">
+<link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+<script>
+  /* 在页面显示前设置语言，避免闪烁 */
+  (function(){var l=null;try{l=localStorage.getItem('acssulm-lang')}catch(e){}
+  if(l!=='en'&&l!=='de')l='zh';var r=document.documentElement;r.dataset.lang=l;r.lang={zh:'zh-CN',en:'en',de:'de'}[l];})();
+</script>
+</head>
+<body data-section="{{ if .IsHome }}home{{ else }}{{ with .Section }}{{ . }}{{ else }}{{ .File.ContentBaseName }}{{ end }}{{ end }}">
+{{ partial "header.html" . }}
+<main>
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+<script src="{{ "js/site.js" | relURL }}"></script>
+</body>
+</html>

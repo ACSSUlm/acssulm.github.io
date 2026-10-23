@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="phead"><div class="wrap">
+  <div class="crumbs"><a href="{{ "/" | relURL }}"><span class="zh">首页</span><span class="en">Home</span><span class="de">Start</span></a><span>/</span><a href="{{ "events/" | relURL }}"><span class="zh">活动回顾</span><span class="en">Events</span><span class="de">Rückblick</span></a><span>/</span><span>{{ partial "tri.html" (dict "zh" .Title "en" .Params.title_en "de" .Params.title_de) }}</span></div>
+  <h1>{{ partial "tri.html" (dict "zh" .Title "en" .Params.title_en "de" .Params.title_de) }}</h1>
+</div></div>
+<div class="wrap pbody">
+  <div class="ev-detail">
+    <article class="stack" style="gap:20px;min-width:0">
+      {{ with .Params.cover }}<div id="ev-cover"><div class="cover img"><img src="{{ partial "img.html" . }}" alt=""></div></div>{{ end }}
+      <div class="prose zh">{{ .Content }}</div>
+      {{ range slice "en" "de" }}
+        {{ $b := index $.Params (printf "body_%s" .) }}
+        <div class="prose {{ . }}">
+          {{ if $b }}{{ $b | markdownify }}{{ else }}
+            <div class="note fallback">{{ if eq . "en" }}This recap is only available in Chinese so far.{{ else }}Dieser Bericht ist bisher nur auf Chinesisch verfügbar.{{ end }}</div>
+            {{ $.Content }}
+          {{ end }}
+        </div>
+      {{ end }}
+      {{ with .Params.photos }}
+      <h2 style="font-size:1.15rem"><span class="zh">照片</span><span class="en">Photos</span><span class="de">Fotos</span></h2>
+      <div class="gallery">{{ range . }}<button data-src="{{ partial "img.html" . }}" aria-label="photo"><img src="{{ partial "img.html" . }}" alt="" loading="lazy"></button>{{ end }}</div>
+      {{ end }}
+    </article>
+    <aside>
+      <dl class="facts-list" style="margin:0">
+        <div><dt><span class="zh">日期</span><span class="en">Date</span><span class="de">Datum</span></dt><dd style="margin:0;font-weight:600">{{ partial "date.html" .Date }}{{ with .Params.time }} · {{ . }}{{ end }}</dd></div>
+        <div><dt><span class="zh">类别</span><span class="en">Category</span><span class="de">Kategorie</span></dt><dd style="margin:0;font-weight:600">{{ partial "cat.html" .Params.category }}</dd></div>
+        {{ with .Params.place }}<div><dt><span class="zh">地点</span><span class="en">Place</span><span class="de">Ort</span></dt><dd style="margin:0;font-weight:600">{{ . }}</dd></div>{{ end }}
+        {{ with .Params.people }}<div><dt><span class="zh">参与人数</span><span class="en">Attendees</span><span class="de">Teilnehmende</span></dt><dd style="margin:0;font-weight:600">{{ . }}</dd></div>{{ end }}
+      </dl>
+      <p style="margin-top:14px"><a class="more" href="{{ "events/" | relURL }}"><span class="zh">← 返回活动列表</span><span class="en">← Back to events</span><span class="de">← Zurück zur Übersicht</span></a></p>
+    </aside>
+  </div>
+</div>
+{{ end }}

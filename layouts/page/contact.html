@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+  <div class="phead"><div class="wrap">
+    <div class="crumbs"><a href="{{ "/" | relURL }}"><span class="zh">首页</span><span class="en">Home</span><span class="de">Start</span></a><span>/</span><span><span class="zh">联系我们</span><span class="en">Contact</span><span class="de">Kontakt</span></span></div>
+    <h1><span class="zh">联系我们</span><span class="en">Contact</span><span class="de">Kontakt</span></h1>
+    <p class="lead"><span class="zh">想加入学联、参与组织活动，或有合作意向，都欢迎联系。</span><span class="en">Want to join, help run events or propose a partnership? Get in touch.</span><span class="de">Mitmachen, Events organisieren oder kooperieren? Schreib uns.</span></p>
+  </div></div>
+  <div class="wrap pbody">
+    {{ $s := site.Data.site }}
+    <div class="g4">
+      {{ with $s.email }}<div class="card contact"><span class="k">E-Mail</span><span class="v" id="c-mail">{{ . }}</span><button class="copy" data-t="c-mail">复制</button></div>{{ end }}
+      {{ with $s.wechat }}<div class="card contact"><span class="k"><span class="zh">微信公众号</span><span class="en">WeChat account</span><span class="de">WeChat-Kanal</span></span><span class="v" id="c-wx">{{ . }}</span><button class="copy" data-t="c-wx">复制</button></div>{{ end }}
+      <div class="card contact"><span class="k"><span class="zh">新生群</span><span class="en">Newcomer chat</span><span class="de">Neuen-Chat</span></span><span class="v">{{ partial "tri.html" (dict "zh" $s.newcomer_group_zh "en" $s.newcomer_group_en "de" $s.newcomer_group_de) }}</span></div>
+      {{ with $s.xiaohongshu }}<div class="card contact"><span class="k"><span class="zh">小红书</span><span class="en">Xiaohongshu (RED)</span><span class="de">Xiaohongshu (RED)</span></span><span class="v" id="c-xhs">{{ . }}</span><button class="copy" data-t="c-xhs">复制</button></div>{{ end }}
+    </div>
+  </div>
+
+{{ end }}

@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+  <section class="hero photo">
+    <img src="{{ "images/ulm.jpg" | relURL }}" alt="">
+    <div class="wrap"><div class="hero-text">
+      <div class="eyebrow"><span class="zh">乌尔姆 · 新乌尔姆</span><span class="en">Ulm · Neu-Ulm</span><span class="de">Ulm · Neu-Ulm</span></div>
+      <h1 style="margin-block:12px 14px">
+        <span class="zh">在多瑙河畔，<em>找到</em>你的同乡</span>
+        <span class="en">Your Chinese community <em>on the Danube</em></span>
+        <span class="de">Deine chinesische Community <em>an der Donau</em></span>
+      </h1>
+      <p class="lead">
+        <span class="zh">乌尔姆中国学生学者联谊会（ACSSUlm）是乌尔姆地区中国留学生和学者的非营利组织。从落地第一天到毕业，我们都在。</span>
+        <span class="en">The Association of Chinese Students and Scholars in Ulm (ACSSUlm) is a non-profit for Chinese students and scholars in the Ulm region. From your first day here until graduation, we are here to help.</span>
+        <span class="de">Die ACSSUlm ist ein gemeinnütziger Verein chinesischer Studierender und Forschender in der Region Ulm. Vom ersten Tag bis zum Abschluss sind wir für euch da.</span>
+      </p>
+      <div class="ctas">
+        <a class="btn primary" href="{{ "newcomers/" | relURL }}"><span class="zh">新生必读</span><span class="en">New here? Start here</span><span class="de">Neu hier? Los geht's</span> →</a>
+        <a class="btn" href="{{ "contact/" | relURL }}"><span class="zh">加入学联群</span><span class="en">Join our group chat</span><span class="de">Gruppenchat beitreten</span></a>
+      </div>
+    </div></div>
+  </section>
+  <div class="wrap pbody">
+    <section class="sec">
+      <h2><span class="zh">近期通知</span><span class="en">Coming up</span><span class="de">Demnächst</span></h2>
+      <div class="notices">
+        {{ range site.Data.notices }}
+        <div class="notice" data-end="{{ .end }}"><div class="dt">{{ .day }}<small>{{ .time }}</small></div><div><h3>{{ partial "tri.html" (dict "zh" .title_zh "en" .title_en "de" .title_de) }}</h3><p>{{ partial "tri.html" (dict "zh" .text_zh "en" .text_en "de" .text_de) }}</p>{{ with .link }}<a href="{{ . }}" target="_blank" rel="noopener"><span class="zh">详情 ↗</span><span class="en">Details ↗</span><span class="de">Details ↗</span></a>{{ end }}</div></div>
+        {{ end }}
+        <p class="notice muted" id="no-notices" hidden><span class="zh">目前没有新的通知，关注公众号获取最新消息。</span><span class="en">No upcoming notices right now. Follow our WeChat account for news.</span><span class="de">Gerade keine Ankündigungen. Folge unserem WeChat-Kanal für Neuigkeiten.</span></p>
+      </div>
+    </section>
+    <section class="sec">
+      <h2><span class="zh">我能在这里找到什么</span><span class="en">What you'll find here</span><span class="de">Was du hier findest</span></h2>
+      <div class="g4">
+        <a class="card" href="{{ "newcomers/" | relURL }}"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11l5 5v11H4z"/><path d="M14 4v6h6"/></svg></span><h3><span class="zh">新生指南</span><span class="en">Newcomer guide</span><span class="de">Erste Schritte</span></h3><p><span class="zh">登记、保险、银行、居留，按顺序办。</span><span class="en">Registration, insurance, bank, residence permit, in order.</span><span class="de">Anmeldung, Versicherung, Bank, Aufenthalt – der Reihe nach.</span></p><span class="go">→</span></a>
+        <a class="card" href="{{ "housing/" | relURL }}"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg></span><h3><span class="zh">租房</span><span class="en">Housing</span><span class="de">Wohnen</span></h3><p><span class="zh">宿舍、WG 和私人房源，以及防骗提示。</span><span class="en">Dorms, shared flats, private rooms and scam warnings.</span><span class="de">Wohnheime, WGs, Privatzimmer und Betrugswarnungen.</span></p><span class="go">→</span></a>
+        <a class="card" href="{{ "events/" | relURL }}"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3><span class="zh">活动回顾</span><span class="en">Past events</span><span class="de">Rückblick</span></h3><p><span class="zh">春节工坊、迎新会和讲座的照片与总结。</span><span class="en">Photos and write-ups of festivals, welcome meetups and talks.</span><span class="de">Fotos und Berichte von Festen, Treffen und Vorträgen.</span></p><span class="go">→</span></a>
+        <a class="card" href="{{ "about/" | relURL }}"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.5 1.5-4.5 4-4.5"/></svg></span><h3><span class="zh">关于学联</span><span class="en">About us</span><span class="de">Über uns</span></h3><p><span class="zh">我们是谁、各部门做什么、如何加入。</span><span class="en">Who we are, our teams and how to join.</span><span class="de">Wer wir sind, unsere Teams und Mitmachen.</span></p><span class="go">→</span></a>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="sec-head"><h2><span class="zh">最新活动</span><span class="en">Latest events</span><span class="de">Neueste Veranstaltungen</span></h2><a class="more" href="{{ "events/" | relURL }}"><span class="zh">全部活动 →</span><span class="en">All events →</span><span class="de">Alle →</span></a></div>
+      <div class="g3">{{ range first 3 (where site.RegularPages "Section" "events").ByDate.Reverse }}{{ partial "event-card.html" . }}{{ end }}</div>
+    </section>
+    <section class="sec">
+      <h2><span class="zh">合作与支持</span><span class="en">Partners &amp; supporters</span><span class="de">Partner &amp; Unterstützer</span></h2>
+      <div class="partners">{{ range site.Data.site.partners }}<span>{{ . }}</span>{{ end }}</div>
+      <p class="muted" style="font-size:.88rem"><span class="zh">有合作意向？请通过联系我们页面与外联部联系。</span><span class="en">Interested in partnering? Reach us via the contact page.</span><span class="de">Interesse an einer Kooperation? Schreib uns über die Kontaktseite.</span></p>
+    </section>
+  </div>
+
+{{ end }}

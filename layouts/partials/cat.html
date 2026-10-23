@@ -1,0 +1,2 @@
+{{- $c := dict "culture" (dict "zh" "文化" "en" "Culture" "de" "Kultur") "welcome" (dict "zh" "迎新" "en" "Welcome" "de" "Willkommen") "talk" (dict "zh" "讲座" "en" "Talk" "de" "Vortrag") "outing" (dict "zh" "出游" "en" "Outing" "de" "Ausflug") "sport" (dict "zh" "运动 / 桌游" "en" "Sports & games" "de" "Sport & Spiele") -}}
+{{- with index $c . }}{{ partial "tri.html" . }}{{ else }}{{ . }}{{ end -}}

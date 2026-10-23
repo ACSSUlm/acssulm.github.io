@@ -1,0 +1,4 @@
+{{- /* 三语文字：英文/德文为空时显示中文 */ -}}
+{{- $zh := .zh | default "" -}}
+<span class="zh">{{ $zh }}</span><span class="en">{{ .en | default $zh }}</span><span class="de">{{ .de | default $zh }}</span>
+{{- /**/ -}}

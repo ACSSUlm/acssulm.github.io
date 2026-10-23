@@ -1,0 +1,17 @@
+# 网站基本设置。baseURL 由 GitHub Actions 在发布时自动填写，不用改。
+baseURL = "/"
+title = "ACSSUlm 乌尔姆学联"
+languageCode = "zh-CN"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[markup.goldmark.renderer]
+  # 允许在正文里写少量 HTML（后台富文本编辑器可能会生成 HTML）
+  unsafe = true
+
+[params]
+  description = "乌尔姆中国学生学者联谊会（ACSSUlm）：新生指南、租房信息、活动回顾和联系方式。"
+
+[permalinks]
+  # 活动网址 = 文件名，例如 /events/2025-10-24-welcome/
+  events = "/events/:filename/"

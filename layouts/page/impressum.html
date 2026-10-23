@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ $s := site.Data.site }}
+  <div class="phead"><div class="wrap">
+    <div class="crumbs"><a href="{{ "/" | relURL }}"><span class="zh">首页</span><span class="en">Home</span><span class="de">Start</span></a><span>/</span><span>Impressum &amp; Datenschutz</span></div>
+    <h1>Impressum &amp; Datenschutz</h1>
+  </div></div>
+  <div class="wrap pbody">
+    <div class="prose">
+      {{ if not $s.impressum_name }}<div class="note"><span class="zh">请在后台「网站设置」中填写负责人姓名和地址。</span><span class="en">Please fill in the responsible person in the site settings.</span><span class="de">Bitte verantwortliche Person in den Website-Einstellungen eintragen.</span></div>{{ end }}
+      <h2>Impressum</h2>
+      <p>Association of Chinese Students and Scholars in Ulm (ACSSUlm)<br>
+      Verantwortlich: {{ with $s.impressum_name }}{{ . }}{{ else }}【Name】{{ end }}<br>
+      {{ with $s.impressum_address }}{{ . }}{{ else }}【Anschrift】{{ end }}<br>
+      E-Mail: {{ with $s.email }}{{ . }}{{ else }}【E-Mail】{{ end }}</p>
+      <h2>Datenschutzerklärung</h2>
+      <p>Diese Website wird über GitHub Pages (GitHub Inc., USA) bereitgestellt. Beim Aufruf der Seiten verarbeitet GitHub technisch notwendige Daten wie IP-Adresse, Zeitpunkt und aufgerufene Seite, um die Website auszuliefern und abzusichern. Weitere Informationen: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub-Datenschutzerklärung</a>.</p>
+      <p>Wir setzen keine Cookies, keine Analyse-Tools und keine Schriftarten oder Skripte von Drittanbietern ein. Die gewählte Sprache wird nur lokal in deinem Browser (localStorage) gespeichert.</p>
+      <p>Links zu externen Seiten (z. B. Anmeldeformulare) führen zu Angeboten anderer Anbieter, für deren Datenverarbeitung diese verantwortlich sind.</p>
+      <p>Bei Fragen zum Datenschutz oder zu Fotos, auf denen du zu sehen bist, schreib uns bitte an die oben genannte E-Mail-Adresse.</p>
+      <p class="muted" style="font-size:.85rem"><span class="zh">以上为通用模板，正式使用前建议请大学或学生会核对。</span><span class="en">This is a general template; please have it checked before relying on it.</span><span class="de">Allgemeine Vorlage; bitte vor der Nutzung prüfen lassen.</span></p>
+    </div>
+  </div>
+{{ end }}

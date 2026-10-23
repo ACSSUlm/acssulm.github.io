@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+  <div class="phead"><div class="wrap">
+    <div class="crumbs"><a href="{{ "/" | relURL }}"><span class="zh">首页</span><span class="en">Home</span><span class="de">Start</span></a><span>/</span><span><span class="zh">租房</span><span class="en">Housing</span><span class="de">Wohnen</span></span></div>
+    <h1><span class="zh">在乌尔姆找住处</span><span class="en">Finding a place in Ulm</span><span class="de">Eine Wohnung in Ulm finden</span></h1>
+    <p class="lead"><span class="zh">乌尔姆房源紧张，尤其是冬季学期开学前。建议拿到录取后立刻申请学生宿舍，同时在其他平台找房。</span><span class="en">Rooms go fast, especially before the winter semester. Apply for a dorm as soon as you're admitted and search elsewhere in parallel.</span><span class="de">Zimmer sind knapp, besonders vor dem Wintersemester. Direkt nach der Zulassung fürs Wohnheim bewerben und parallel suchen.</span></p>
+    <div class="jump"><a href="#h-where"><span class="zh">去哪里找</span><span class="en">Where to look</span><span class="de">Wo suchen</span></a><a href="#h-check"><span class="zh">签约前检查</span><span class="en">Before you sign</span><span class="de">Vor der Unterschrift</span></a><a href="#h-scam"><span class="zh">防骗</span><span class="en">Scams</span><span class="de">Betrug</span></a></div>
+  </div></div>
+  <div class="wrap pbody">
+    <section class="sec" id="h-where">
+      <h2><span class="zh">去哪里找</span><span class="en">Where to look</span><span class="de">Wo suchen</span></h2>
+      <div class="g2">
+        <div class="card"><span class="tag"><span class="zh">首选</span><span class="en">First choice</span><span class="de">Erste Wahl</span></span><h3><span class="zh">学生宿舍 Studierendenwerk Ulm</span><span class="en">Student dorms (Studierendenwerk Ulm)</span><span class="de">Wohnheime (Studierendenwerk Ulm)</span></h3><p><span class="zh">价格最低，合同简单。在线申请，排队时间较长。</span><span class="en">Cheapest option with simple contracts. Apply online; the waiting list can be long.</span><span class="de">Günstigste Option, einfache Verträge. Online bewerben; Wartezeiten möglich.</span></p><a class="go" href="https://studierendenwerk-ulm.de" target="_blank" rel="noopener">studierendenwerk-ulm.de ↗</a></div>
+        <div class="card"><span class="tag"><span class="zh">私人房源</span><span class="en">Private rooms</span><span class="de">Privatzimmer</span></span><h3><span class="zh">Studierendenwerk 私人房源库</span><span class="en">Studierendenwerk private room listings</span><span class="de">Privatzimmerkartei</span></h3><p><span class="zh">Studierendenwerk 也收集私人房东的房源，并提供租房合同范本（Mustermietvertrag）。</span><span class="en">The Studierendenwerk also lists private rooms and offers a sample rental contract.</span><span class="de">Das Studierendenwerk führt eine Privatzimmerkartei und bietet einen Mustermietvertrag.</span></p><a class="go" href="https://studierendenwerk-ulm.de" target="_blank" rel="noopener"><span class="zh">在“Wohnen”栏目下查看 ↗</span><span class="en">See the “Wohnen” section ↗</span><span class="de">Unter „Wohnen“ ↗</span></a></div>
+        <div class="card"><span class="tag"><span class="zh">合租</span><span class="en">Shared flats</span><span class="de">WG</span></span><h3>WG-Gesucht</h3><p><span class="zh">德国最常用的合租平台，适合找 WG 房间和短期转租（Zwischenmiete）。</span><span class="en">Germany's main platform for shared-flat rooms and short-term sublets.</span><span class="de">Die wichtigste Plattform für WG-Zimmer und Zwischenmiete.</span></p><a class="go" href="https://www.wg-gesucht.de" target="_blank" rel="noopener">wg-gesucht.de ↗</a></div>
+        <div class="card"><span class="tag red"><span class="zh">学联</span><span class="en">ACSSUlm</span><span class="de">ACSSUlm</span></span><h3><span class="zh">学联租房群</span><span class="en">ACSSUlm housing chat</span><span class="de">ACSSUlm-Wohnungsgruppe</span></h3><p><span class="zh">毕业生转租和室友招募常在群里发布。</span><span class="en">Graduating students post sublets and flatmate searches here.</span><span class="de">Absolventen bieten hier Zimmer an.</span></p><a class="go" href="{{ "contact/" | relURL }}"><span class="zh">如何加入 →</span><span class="en">How to join →</span><span class="de">So trittst du bei →</span></a></div>
+      </div>
+    </section>
+    <section class="sec" id="h-check">
+      <h2><span class="zh">签合同前检查</span><span class="en">Before you sign</span><span class="de">Vor der Unterschrift</span></h2>
+      <div class="prose"><ul>
+        <li><span class="zh">租金是冷租（Kaltmiete）还是暖租（Warmmiete）？包含哪些杂费（Nebenkosten）？</span><span class="en">Is the rent cold (Kaltmiete) or warm (Warmmiete)? Which utilities (Nebenkosten) are included?</span><span class="de">Kalt- oder Warmmiete? Welche Nebenkosten sind enthalten?</span></li>
+        <li><span class="zh">押金（Kaution）最多三个月冷租，退还条件写清楚。</span><span class="en">The deposit (Kaution) is at most three months' cold rent; get the return conditions in writing.</span><span class="de">Die Kaution beträgt höchstens drei Kaltmieten; Rückgabe schriftlich regeln.</span></li>
+        <li><span class="zh">房东能否出具 Wohnungsgeberbestätigung？没有它无法做城市登记。</span><span class="en">Will the landlord issue a Wohnungsgeberbestätigung? You need it for the Anmeldung.</span><span class="de">Stellt der Vermieter eine Wohnungsgeberbestätigung aus? Ohne sie keine Anmeldung.</span></li>
+        <li><span class="zh">入住时拍照记录房屋现状，和房东一起签交接单（Übergabeprotokoll）。</span><span class="en">Photograph the room on move-in and sign a handover record (Übergabeprotokoll) with the landlord.</span><span class="de">Beim Einzug Fotos machen und ein Übergabeprotokoll unterschreiben.</span></li>
+      </ul></div>
+    </section>
+    <section class="sec" id="h-scam">
+      <div class="warn"><b><span class="zh">谨防租房诈骗：</span><span class="en">Watch out for rental scams: </span><span class="de">Vorsicht vor Mietbetrug: </span></b><span class="zh">没看房、没签合同之前，不要转账支付押金。房东说“人在国外、先付钱再寄钥匙”几乎都是骗局。</span><span class="en">Never transfer a deposit before viewing the room and signing a contract. A landlord who is "abroad" and will "post the keys after payment" is almost always a scam.</span><span class="de">Niemals eine Kaution überweisen, bevor du das Zimmer gesehen und den Vertrag unterschrieben hast. „Vermieter im Ausland, Schlüssel per Post“ ist fast immer Betrug.</span></div>
+    </section>
+  </div>
+
+{{ end }}
